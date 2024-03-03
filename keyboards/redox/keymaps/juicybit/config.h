@@ -93,7 +93,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLED_NUM
 #define RGBLED_NUM 14
 #define RGBLIGHT_HUE_STEP 180
+#undef RGBLIGHT_SAT_STEP
 #define RGBLIGHT_SAT_STEP 80
+#undef RGBLIGHT_VAL_STEP
 #define RGBLIGHT_VAL_STEP 80
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_SPLIT

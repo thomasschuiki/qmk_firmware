@@ -5,7 +5,7 @@
 #include "quantum/keymap_extras/keymap_german.h"
 
 extern keymap_config_t keymap_config;
-extern rgblight_config_t rgblight_config;
+//extern rgblight_config_t rgblight_config;
 
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
@@ -96,24 +96,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-    case _QWERTY:
-        rgblight_setrgb (0x00,  0x00, 0xFF);
-        break;
-    case _SYMB:
-        rgblight_setrgb (0xFF,  0x00, 0x00);
-        break;
-    case _NAV:
-        rgblight_setrgb (0x00,  0xFF, 0x00);
-        break;
-    case _ADJUST:
-        rgblight_setrgb (0x7A,  0x00, 0xFF);
-        break;
-    default: //  for any other layers, or the default layer
-        rgblight_setrgb (0x00,  0xFF, 0xFF);
-        break;
-    }
-  return state;
-}
+/* layer_state_t layer_state_set_user(layer_state_t state) { */
+/*     switch (get_highest_layer(state)) { */
+/*     case _QWERTY: */
+/*         rgblight_setrgb (0x00,  0x00, 0xFF); */
+/*         break; */
+/*     case _SYMB: */
+/*         rgblight_setrgb (0xFF,  0x00, 0x00); */
+/*         break; */
+/*     case _NAV: */
+/*         rgblight_setrgb (0x00,  0xFF, 0x00); */
+/*         break; */
+/*     case _ADJUST: */
+/*         rgblight_setrgb (0x7A,  0x00, 0xFF); */
+/*         break; */
+/*     default: //  for any other layers, or the default layer */
+/*         rgblight_setrgb (0x00,  0xFF, 0xFF); */
+/*         break; */
+/*     } */
+/*   return state; */
+/* } */
 
