@@ -30,8 +30,8 @@ enum custom_keycodes {
 #define KC_ALAS LALT_T(KC_PAST)
 #define KC_CTPL LCTL_T(KC_PSLS)
 
-#define KC_NAGR LT(_NAV, DE_CIRC)
-#define KC_NAMI LT(_NAV, DE_SS)
+#define KC_NAGR LT(_SYMB, DE_CIRC)
+#define KC_NAMI LT(_SYMB, DE_SS)
 
 #define KC_ADEN LT(_ADJUST, KC_END)
 #define KC_ADPU LT(_ADJUST, KC_PGUP)
@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_LSFT ,DE_Y    ,DE_X    ,DE_C    ,DE_V    ,DE_B    ,KC_ADPU ,KC_PGDN ,        KC_HOME ,KC_ADEN ,DE_N    ,DE_M    ,DE_COMM ,DE_DOT  ,DE_MINS ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     KC_LCTL ,DE_PLUS ,DE_MINS ,KC_LALT ,     KC_LGUI ,    KC_BSPC ,KC_DEL  ,        KC_ENT  ,KC_SPC  ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
+     KC_LCTL ,DE_PLUS ,DE_MINS ,KC_LGUI ,     KC_LALT ,    KC_BSPC ,KC_DEL  ,        KC_ENT  ,KC_SPC  ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
