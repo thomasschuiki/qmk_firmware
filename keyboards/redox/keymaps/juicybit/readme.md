@@ -10,6 +10,7 @@ qmk compile # with defaults set
 qmk compile -kb redox/rev1 -km juicybit
 
 ## flashing
+remember to disconnect second half before flashing
 https://docs.qmk.fm/#/newbs_flashing?id=flash-your-keyboard-from-the-command-line
 qmk flash
 qmk flash -kb redox/rev1 -km juicybit
