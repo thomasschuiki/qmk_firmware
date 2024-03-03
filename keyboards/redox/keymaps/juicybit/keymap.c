@@ -25,7 +25,7 @@ enum custom_keycodes {
 
 // Shortcut to make keymap more readable
 #define KC_BKSL KC_BSLASH
-#define SYM_L   MO(_SYMB)
+#define L_SYM   MO(_SYMB)
 
 #define KC_ALAS LALT_T(KC_PAST)
 #define KC_CTPL LCTL_T(KC_PSLS)
@@ -42,7 +42,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      KC_NAGR ,DE_1    ,DE_2    ,DE_3    ,DE_4    ,DE_5    ,                                            DE_6    ,DE_7    ,DE_8    ,DE_9    ,DE_0    ,KC_NAMI ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_TAB  ,DE_Q    ,DE_W    ,DE_E    ,DE_R    ,DE_T    ,SYM_L   ,                          SYM_L   ,DE_Z    ,DE_U    ,DE_I    ,DE_O    ,DE_P    ,DE_UDIA ,
+     KC_TAB  ,DE_Q    ,DE_W    ,DE_E    ,DE_R    ,DE_T    ,L_SYM   ,                          L_SYM   ,DE_Z    ,DE_U    ,DE_I    ,DE_O    ,DE_P    ,DE_UDIA ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_ESC  ,DE_A    ,DE_S    ,DE_D    ,DE_F    ,DE_G    ,DE_COMM ,                          DE_DOT  ,DE_H    ,DE_J    ,DE_K    ,DE_L    ,DE_ODIA ,DE_ADIA ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -56,13 +56,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
      _______ ,KC_F1   ,KC_F2   ,KC_F3   ,KC_F4   ,KC_F5   ,                                            KC_F6   ,KC_F7   ,KC_F8   ,KC_F9   ,KC_F10  ,KC_F11  ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______ ,DE_EXLM ,DE_AT   ,DE_LCBR ,DE_RCBR ,DE_PIPE ,_______ ,                          _______ ,XXXXXXX ,DE_ASTR ,DE_QUOT ,KC_KP_9 ,XXXXXXX ,KC_F12  ,
+     _______ ,DE_EXLM ,DE_AT   ,DE_LCBR ,DE_RCBR ,DE_PIPE ,_______ ,                          _______ ,XXXXXXX ,DE_ASTR ,DE_LABK ,DE_RABK ,XXXXXXX ,KC_F12  ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     _______ ,DE_HASH ,DE_DLR  ,DE_LBRC ,DE_RBRC ,DE_TILD ,_______ ,                          _______ ,DE_BSLS ,DE_LABK ,DE_RABK ,KC_KP_6 ,DE_PLUS ,XXXXXXX ,
+     _______ ,XXXXXXX ,DE_DLR  ,DE_LBRC ,DE_RBRC ,DE_TILD ,_______ ,                          _______ ,DE_HASH ,DE_EQL  ,DE_MINS ,DE_PLUS ,XXXXXXX ,XXXXXXX ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_LSFT ,XXXXXXX ,XXXXXXX ,DE_LPRN ,DE_RPRN ,DE_GRV  ,_______ ,_______ ,        _______ ,_______ ,XXXXXXX ,KC_KP_1 ,KC_KP_2 ,KC_KP_3 ,DE_MINS ,KC_RSFT ,
+     KC_LSFT ,XXXXXXX ,XXXXXXX ,DE_LPRN ,DE_RPRN ,DE_GRV  ,_______ ,_______ ,        _______ ,_______ ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_RSFT ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     _______ ,_______ ,_______ ,KC_LALT ,     KC_LCTL ,    _______ ,_______ ,        _______ ,_______ ,    KC_KP_0 ,     KC_KP_0 ,KC_PDOT ,XXXXXXX ,XXXXXXX
+     _______ ,_______ ,_______ ,KC_LALT ,     KC_LCTL ,    _______ ,_______ ,        _______ ,_______ ,    XXXXXXX ,     XXXXXXX ,KC_PDOT ,XXXXXXX ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -95,3 +95,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   )
 
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+    case _QWERTY:
+        rgblight_setrgb (0x00,  0x00, 0xFF);
+        break;
+    case _SYMB:
+        rgblight_setrgb (0xFF,  0x00, 0x00);
+        break;
+    case _NAV:
+        rgblight_setrgb (0x00,  0xFF, 0x00);
+        break;
+    case _ADJUST:
+        rgblight_setrgb (0x7A,  0x00, 0xFF);
+        break;
+    default: //  for any other layers, or the default layer
+        rgblight_setrgb (0x00,  0xFF, 0xFF);
+        break;
+    }
+  return state;
+}
+
